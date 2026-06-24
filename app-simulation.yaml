@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: runaway-logger
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: runaway-logger
+  template:
+    metadata:
+      labels:
+        app: runaway-logger
+    spec:
+      containers:
+      - name: stream-generator
+        image: alpine:latest
+        command: ["sh", "-c"]
+        args:
+          - |
+            while true; do
+              echo "CRITICAL_SYSTEM_ERROR_STACK_TRACE_DATA_DUMP_WARNING_DISK_PRESSURE_TESTING_DATA_STREAM_RUNAWAY_PROCESS_LINE_ITEM_LONG_STRING_LONG_STRING_LONG_STRING"
+            done

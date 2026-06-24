@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: disk-inflater
+  namespace: default
+spec:
+  restartPolicy: Never
+  containers:
+  - name: filler
+    image: alpine:latest
+    command: ["sh", "-c"]
+    args:
+      - |
+        echo "Allocating 18GB directly onto host node storage interface..."
+        dd if=/dev/zero of=/host/var/log/heavy_simulation_payload.img bs=1M count=18000
+        echo "Allocation finished. Keeping pod alive to sustain pressure..."
+        sleep 3600
+    volumeMounts:
+    - name: host-root
+      mountPath: /host
+  volumes:
+  - name: host-root
+    hostPath:
+      path: /

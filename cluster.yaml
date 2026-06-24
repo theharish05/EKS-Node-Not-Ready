@@ -1,0 +1,15 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: node-pressure-cluster
+  region: us-east-1
+  version: "1.30"
+
+managedNodeGroups:
+  - name: economic-single-node
+    instanceType: t3.small
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 1
+    volumeSize: 20
