@@ -44,5 +44,3 @@ As soon as the server's background metrics detected that the storage drive was e
 
 * **Proactive Alerts:** Configure automated notification systems to alert engineers when server storage space crosses 75% capacity, allowing team intervention before an automated lockout occurs.
 * **Automated Log Cleaners:** Maintain background system services that routinely sweep and compress application runtime logs before they grow large enough to cause disk starvation.
-
-```
