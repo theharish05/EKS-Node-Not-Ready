@@ -1,4 +1,4 @@
-# Incident Report: Worker Node Storage Exhaustion
+# Incident Report: Worker Node Exhaustion
 
 This report documents the resolution of a critical cluster issue where a worker node stopped accepting workloads due to running out of available disk space.
 
